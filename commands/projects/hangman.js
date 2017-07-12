@@ -12,8 +12,11 @@ class HangmanCommand extends commando.Command {
     }
 
     async run(message, args) {
-        if(args.length !== 1) {
-            message.reply("Invalid guess! Please provide a single character.");
+        if(args == "new") {
+            message.reply("**```css\n" + hangman.newGame() + "\n```**");
+        }
+        else if(args.length !== 1) {
+            message.reply("Invalid input! Please enter 'new' to start a new game or a single letter to continue a current game.");
         }
         else {
             message.reply("**```css\n" + hangman.makeMove(args) + "\n```**");
