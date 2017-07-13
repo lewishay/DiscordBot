@@ -4,6 +4,9 @@ module.exports = {
 }
 
  function makeSquare(word) {
+    if(word.length < 1) {
+        return "Please enter a word.";
+    }
     var inner = [];
     var length = word.length;
     var newLine;

@@ -4,7 +4,7 @@
   "description": "",
   "main": "discordBot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha -w"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,8 @@
   "dependencies": {
     "discord.js": "^11.1.0",
     "discord.js-commando": "^0.9.0",
+    "mocha": "^3.4.2",
+    "should": "^11.2.1",
     "simple-weather": "^1.2.2"
   }
 }
