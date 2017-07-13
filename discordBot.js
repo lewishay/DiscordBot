@@ -6,6 +6,7 @@ var token = privateStuff.key;
 
 bot.registry.registerGroup("fight");
 bot.registry.registerGroup("projects");
+bot.registry.registerGroup("weather");
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands");
 
@@ -13,4 +14,4 @@ bot.on('ready', () => {
   console.log(`Logged in as ${bot.user.tag}!`);
 });
 
-bot.login(token)
+bot.login(token);
