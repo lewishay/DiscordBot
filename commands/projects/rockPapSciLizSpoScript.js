@@ -10,10 +10,10 @@ player["paper"] = ["covers", "is cut by", "draws against", "is eaten by", "dispr
 player["lizard"] = ["is crushed by", "is decapitated by", "eats", "draws against", "poisons"];
 player["spock"] = ["vaporises", "vaporises", "is disproved by", "is poisoned by", "draws against"];
 var winCheck = {};
-winCheck["rock"] = ["You draw!", "You win!", "Computer wins!", "You win!", "Computer wins!"];
-winCheck["scissors"] = ["Computer wins!", "You draw!", "You win!", "You win!", "Computer wins!"];
-winCheck["paper"] = ["You win!", "Computer wins!", "You draw!", "Computer wins!", "You win!"];
-winCheck["lizard"] = ["Computer wins!", "Computer wins!", "You win!", "You draw!", "You win!"];
+winCheck["rock"] = ["You draw!", "You win!", "Opponent wins!", "You win!", "Opponent wins!"];
+winCheck["scissors"] = ["Opponent wins!", "You draw!", "You win!", "You win!", "Opponent wins!"];
+winCheck["paper"] = ["You win!", "Opponent wins!", "You draw!", "Opponent wins!", "You win!"];
+winCheck["lizard"] = ["Opponent wins!", "Opponent wins!", "You win!", "You draw!", "You win!"];
 winCheck["spock"] = ["You win!", "You win!", "You lose!", "You lose!", "You draw!"];
 var count = 0;
 var playerWinCount = 0;
@@ -45,7 +45,7 @@ function makeMove(x) {
     if(outcome === "You win!") {
         playerWinCount++;
     }
-    else if(outcome === "Computer wins!") {
+    else if(outcome === "Opponent wins!") {
         opponentWinCount++;
     }
     else {
