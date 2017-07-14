@@ -24,24 +24,27 @@ database["dragon"] = [1, 1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 1, 1, 2, 1, 0];
 database["dark"] = [1, 0.5, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 0.5, 0.5];
 database["fairy"] = [1, 2, 1, 0.5, 1, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 1, 1, 2, 2, 1];
 
+function getEffectiveness(multiplier) {
+    switch(multiplier) {
+        case 0: return "ineffective";
+        break;
+        case 0.25: return "not very effective";
+        break;
+        case 0.5: return "not very effective";
+        break;
+        case 1: return "effective";
+        break;   
+        default: return "super effective";
+        break;
+    }
+}
+
 function effectivenessCheck2(x, y) {
     if(database[x] == undefined || database[y] == undefined) {
         return "An invalid type was given.";
     }
     var result = database[x][types.indexOf(y)];
-    var effectiveness;
-    switch(result) {
-        case 0: effectiveness = "ineffective";
-        break;
-        case 0.25: effectiveness = "not very effective";
-        break;
-        case 0.5: effectiveness = "not very effective";
-        break;
-        case 1: effectiveness = "effective";
-        break;   
-        default: effectiveness = "super effective";
-        break;
-    }
+    var effectiveness = getEffectiveness(result);
     return x.charAt(0).toUpperCase() + x.slice(1) + " is " + effectiveness + " against " + y.charAt(0).toUpperCase() + y.slice(1) + 
         "!\nThe attack multiplier is " + result + ".";
 }
@@ -52,19 +55,7 @@ function effectivenessCheck3(x, y, z) {
     }
     var result = database[x][types.indexOf(y)];
     result *= database[x][types.indexOf(z)];
-    var effectiveness;
-    switch(result) {
-        case 0: effectiveness = "ineffective";
-        break;
-        case 0.25: effectiveness = "not very effective";
-        break;
-        case 0.5: effectiveness = "not very effective";
-        break;
-        case 1: effectiveness = "effective";
-        break;
-        default: effectiveness = "super effective";
-        break;
-    }
+    var effectiveness = getEffectiveness(result);
     return x.charAt(0).toUpperCase() + x.slice(1) + " is " + effectiveness + " against " + y.charAt(0).toUpperCase() + y.slice(1) + "/" + 
         z.charAt(0).toUpperCase() + z.slice(1) + "!\nThe attack multiplier is " + result + ".";
 }

@@ -1,23 +1,27 @@
 "use strict";
 
+module.exports = {
+    checkWord
+}
+
 const rpsls = require(__dirname + "/../commands/projects/rockPapSciLizSpoScript");
 const assert = require("assert");
 
 let result = rpsls.makeMove("rock").split("\r\n");
-let checkWord = function(input, wordToCheck, arrayToCheck) {
-            let isFound = false;
-            if(arrayToCheck) {
-                for(let i = 0; i < arrayToCheck.length; i++) {
-                    if(input.includes(arrayToCheck[i])) {
-                        isFound = true;
-                    }
-                }
-            }
-            else if(input.includes(WordtoCheck)) {
+function checkWord(input, wordToCheck, arrayToCheck) {
+    let isFound = false;
+    if(arrayToCheck) {
+        for(let i = 0; i < arrayToCheck.length; i++) {
+            if(input.includes(arrayToCheck[i])) {
                 isFound = true;
             }
-            return isFound;
         }
+    }
+    else if(input.includes(WordtoCheck)) {
+        isFound = true;
+    }
+    return isFound;
+}
 
 describe("RPSLS - First move", function () {
     it("should make a move and display initial statistics", function (done) {
