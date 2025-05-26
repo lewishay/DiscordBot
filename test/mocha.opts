@@ -1,6 +1,0 @@
---require should
---require blanket -R html-cov > coverage.htmlc
---reporter mocha-lcov-reporter | ./node_modules/.bin/codacy-coverage
---reporter spec
---ui bdd
---recursive
