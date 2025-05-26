@@ -1,1 +1,5 @@
-token.js
+.bsp
+.idea
+/project/target/
+/target/
+/src/main/resources/application.conf
