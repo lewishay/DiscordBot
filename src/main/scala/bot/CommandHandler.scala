@@ -14,6 +14,7 @@ object CommandHandler:
     if (content.startsWith(prefix)) {
       content.stripPrefix(prefix).split(" ").toList match {
         case "ping" :: _ => PingCommand.run(event)
+        case "ws" :: args => WordSquareCommand.run(event, args.headOption)
         case _ =>
           logger.info(s"Command '$content' not recognised")
           ()
